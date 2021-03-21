@@ -13,7 +13,7 @@ class M_berita {
     public function getAllBerita(){
         $query = 'SELECT * from '.$this->primaryTable.' a 
                 LEFT JOIN '.$this->joinTableKategoriBerita.' b 
-                ON a.id_kategori_jabatan = b.id';
+                ON a.id_kategori = b.id';
         $this->db->query($query);
         return $this->db->results();
     }
