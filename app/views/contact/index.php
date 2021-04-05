@@ -13,9 +13,9 @@
                             <div class="col-sm-6 mb-md-0 mb-3">
                                 <label class="font-item-form" for="titleFormItem">Kategori Produk</label>
                                 <select class="js-example-basic-single customselect normalfont" name=" state ">
-                                    <option value="AL ">Pulsa Prabayar</option>
+                                    <option value="Machine Learning">Machine</option>
 
-                                    <option value="WY ">Wyoming</option>
+                                    <option value="AI">AI</option>
                                 </select>
                                 <!-- <div class="customselect ">
                                 <p class="normalfont ">Pulsa Prabayar</p>
@@ -55,7 +55,7 @@
                             <div class="col-sm-12 ">
                                 <div class="row px-3 ">
                                     <div class="d-flex justify-content-center align-items-start ">
-                                        <img height="48px " width="48px " src="https://raw.githubusercontent.com/RakaYuda/cuang/master/assets/whatsapp.svg?token=AHH43ANFHLWNOOC6MQOH3BLAL4DXC " />
+                                        <img height="48px " width="48px " src="https://www.flaticon.com/svg/vstatic/svg/2111/2111728.svg?token=exp=1617452384~hmac=8b83fd4f59e053fc7be1632511715aa6" />
                                     </div>
                                     <div class="col ">
                                         <p class="font18bold ">Whatsapp</p>
@@ -84,7 +84,7 @@
                             <div class="col-sm-12 ">
                                 <div class="row px-3 ">
                                     <div class="d-flex justify-content-center align-items-start ">
-                                        <img height="48px " width="48px " src="https://raw.githubusercontent.com/RakaYuda/cuang/fb55a4d29e58d19d7979ca2bbd467655dfba632e/assets/info.svg?token=AHH43ALS6VVIGVT2OZL7FQDAKXH7W" />
+                                        <img height="48px " width="48px " src="https://www.flaticon.com/svg/vstatic/svg/4412/4412440.svg?token=exp=1617452476~hmac=fb007b527dd2403935cc775313ab3b73" />
                                     </div>
                                     <div class="col ">
                                         <p class="font18bold ">Costumer Service</p>

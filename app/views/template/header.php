@@ -30,7 +30,7 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg fixed-top py-3">
             <div class="container">
-                <a href="#" class="navbar-brand font-weight-bold">SO<o style="color: red;">un</o>D</a>
+                <a href="#" class="navbar-brand font-weight-bold"><?= isset($data['isCollapse']) && $data['isCollapse'] == false? '<o style="color: #555;">SO</o> <o style="color: red; margin-left:-5px; margin-right:-5px;">un</o> <o style="color: #555;">D</o>': 'SD<o style="color: red;">un</o>D'; ?></a>
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
                     <i class="fa fa-bars"></i>
                 </button>
@@ -39,19 +39,19 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a href="<?= BASEURL ?>" class="<?= isset($data['isCollapse']) && $data['isCollapse'] == false? 'text-dark': ''; ?>
-                            nav-link font-weight-bold px-3 active">Home </a>
+                            nav-link font-weight-bold px-3 <?= isset($data['activePage']) && $data['activePage'] == 'home'? 'active': ''; ?>">Home </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="<?= isset($data['isCollapse']) && $data['isCollapse'] == false? 'text-dark': ''; ?>
-                            nav-link font-weight-bold px-3">Profile</a>
+                            <a href="<?= BASEURL ?>profile" class="<?= isset($data['isCollapse']) && $data['isCollapse'] == false? 'text-dark': ''; ?>
+                            nav-link font-weight-bold px-3 <?= isset($data['activePage']) && $data['activePage'] == 'profile'? 'active': ''; ?>">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="<?= isset($data['isCollapse']) && $data['isCollapse'] == false? 'text-dark': ''; ?>
-                            nav-link font-weight-bold px-3">Berita</a>
+                            <a href="<?= BASEURL ?>berita" class="<?= isset($data['isCollapse']) && $data['isCollapse'] == false? 'text-dark': ''; ?>
+                            nav-link font-weight-bold px-3" <?= isset($data['activePage']) && $data['activePage'] == 'berita'? 'style="color : red !important;"': ''; ?>>Berita</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= BASEURL.'contact' ?>" class="<?= isset($data['isCollapse']) && $data['isCollapse'] == false? 'text-dark': ''; ?>
-                            nav-link font-weight-bold px-3">Kontak</a>
+                            <a href="<?= BASEURL?>contact" class="<?= isset($data['isCollapse']) && $data['isCollapse'] == false? 'text-dark': ''; ?>
+                            nav-link font-weight-bold px-3" <?= isset($data['activePage']) && $data['activePage'] == 'contact'? 'style="color : red !important;"': ''; ?>>Kontak</a>
                         </li>
                     </ul>
                 </div>

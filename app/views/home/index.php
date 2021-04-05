@@ -73,42 +73,19 @@
                     <p class="font-title font-weight-bold">Berita Terpopuler</p>
                 </div>
                 <div class="row w-100 mx-0 ">
-
+                    <?php foreach($data['upberita'] as $key){ ?>
                     <div class="col-md-4 padding-container py-3">
                         <div class="card">
-                            <img class="card-img-top" src="<?= BASEURL ?>assets/image/berita1.png" alt="Card image cap">
+                            <img class="card-img-top" src="<?= $key['path_image'] ?>" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">Apa saja pembayaran online?</h5>
-                                <p style="font-size: small; color: red;">Februari 17, 2020</p>
-                                <p class="card-text">Lorem dorol ipsum amet kansiun jjsamm akkkasin koren maruun siman sinjuntak kanti mangan sodam kasun loreng bakang soeng jong ki....</p>
+                                <h5 class="card-title"><?= $key['title'] ?></h5>
+                                <p style="font-size: small; color: red;"><?= $key['tanggal'] ?></p>
+                                <p class="card-text"><?= substr($key['isi'], 0, 200) ?>....</p>
 
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-4 padding-container py-3">
-                        <div class="card">
-                            <img class="card-img-top" src="<?= BASEURL ?>assets/image/berita2.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Produk apa yang paling diminati selama pandemi?</h5>
-                                <p style="font-size: small; color: red;">Februari 17, 2020</p>
-                                <p class="card-text">Lorem dorol ipsum amet kansiun jjsamm akkkasin koren maruun siman sinjuntak kanti mangan sodam kasun loreng bakang soeng jong ki....</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 padding-container py-3">
-                        <div class="card">
-                            <img class="card-img-top" src="<?= BASEURL ?>assets/image/berita3.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Apa itu Go Digital?</h5>
-                                <p style="font-size: small; color: red;">Februari 17, 2020</p>
-                                <p class="card-text">Lorem dorol ipsum amet kansiun jjsamm akkkasin koren maruun siman sinjuntak kanti mangan sodam kasun loreng bakang soeng jong ki....</p>
-
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
 
                 </div>
             </div>

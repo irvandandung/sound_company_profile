@@ -2,7 +2,8 @@
 
 class Profile extends Controller{
     public function index(){
-        $this->view('template/header');
+        $data['activePage'] = 'profile';
+        $this->view('template/header', $data);
         $this->view('profile/index');
         $this->view('template/footer');
     }

@@ -18,6 +18,14 @@ class M_berita {
         return $this->db->results();
     }
 
+    public function getUpBerita(){
+        $query = 'SELECT * from '.$this->primaryTable.' a 
+                LEFT JOIN '.$this->joinTableKategoriBerita.' b 
+                ON a.id_kategori = b.id LIMIT 0, 4';
+        $this->db->query($query);
+        return $this->db->results();
+    }
+
     //function for get data berita by id from tabel berita in db
     public function getBerita($id){
         $query = 'SELECT * from '.$this->primaryTable.' a 

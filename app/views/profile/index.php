@@ -20,8 +20,8 @@
         <div class="container px-0">
             <div class="row mx-0">
                 <div class="row w-100 mx-0 padding-container">
-                    <p class="font-title"><br>Sound adalah produk teknologi baik lot, machine learning atau al dan masih banyak yang lainnya yang dinaungi oleh perusahaan atau pt sandi makmur teknologi.
-                    didirikan pada tahun 2021 dan memiliki bisnis b to b . sampai saat ini kami sedang explore dan terus mengembangkan teknologi kami dan pastinya kami open kepada perusahaan teknologi 
+                    <p class="font-title"><br>Sound adalah produk teknologi baik lot, machine learning atau ai dan masih banyak yang lainnya yang dinaungi oleh perusahaan atau PT Sandi Makmur Teknologi.
+                    didirikan pada tahun 2021 dan memiliki bisnis B to B . sampai saat ini kami sedang explore dan terus mengembangkan teknologi kami dan pastinya kami open kepada perusahaan teknologi 
                     lain untuk melakukan kerjasama dengan kami.</p>
                     <p class="font-title font-weight-bold">Visi.</p>
                     <p class="font-title">Menjadi sebuah perusahaan yang memiliki banyak manfaat bagi seluruh alam semesta dan memberikan solusi yang terbaik bagi mitra yang melakukan kerjasama dengan kami.</p>
@@ -46,8 +46,8 @@
                                 <div class="row w-100 mx-0 ">
 
                                     <div class="col-md-3 padding-container py-3">
-                                        <div class="card">
-                                            <img class="card-img-top" src="<?= BASEURL ?>assets/image/default.jpg" alt="Card image cap">
+                                        <div style="cursor: default;">
+                                            <img class="card-img-top" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Muhamad Irvan Dandung">
                                             <div class="card-body">
                                                 <h5 class="card-title">CEO</h5>
                                                 <p style="font-size: small; color: red;">Muhammad Irfan Dandung</p>
@@ -56,8 +56,8 @@
                                     </div>
 
                                     <div class="col-md-3 padding-container py-3">
-                                        <div class="card">
-                                            <img class="card-img-top" src="<?= BASEURL ?>assets/image/default.jpg" alt="Card image cap">
+                                        <div style="cursor: default;">
+                                            <img class="card-img-top" src="https://images.unsplash.com/photo-1438763298591-75a0d42b7265?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" alt="Dalu Mukti P">
                                             <div class="card-body">
                                             <h5 class="card-title">CTO</h5>
                                                 <p style="font-size: small; color: red;">Dalu Mukti Pambagyo</p>
@@ -66,8 +66,8 @@
                                     </div>
 
                                     <div class="col-md-3 padding-container py-3">
-                                        <div class="card">
-                                            <img class="card-img-top" src="<?= BASEURL ?>assets/image/default.jpg" alt="Card image cap">
+                                        <div style="cursor: default;">
+                                            <img class="card-img-top" src="https://images.unsplash.com/photo-1500522144261-ea64433bbe27?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80" alt="Cutyanti">
                                             <div class="card-body">
                                             <h5 class="card-title">CPO</h5>
                                                 <p style="font-size: small; color: red;">Cutyanti</p>
@@ -76,8 +76,8 @@
                                     </div>
 
                                     <div class="col-md-3 padding-container py-3">
-                                        <div class="card">
-                                            <img class="card-img-top" src="<?= BASEURL ?>assets/image/default.jpg" alt="Card image cap">
+                                        <div style="cursor: default;">
+                                            <img class="card-img-top" src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt="Tirta">
                                             <div class="card-body">
                                             <h5 class="card-title">COO</h5>
                                                 <p style="font-size: small; color: red;">Mila Hanif Tirta Yasa</p>
@@ -89,10 +89,40 @@
 
                             </div>
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                fuasdhfhasifawejrhaufhjiasdhfihawejif
+                                <div class="row w-100 mx-0 ">
+                                    <div class="col-md-3 padding-container py-3">
+                                        <div style="cursor: default;">
+                                            <img class="card-img-top" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Muhamad Irvan Dandung">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Komisaris Perhubungan</h5>
+                                                <p style="font-size: small; color: red;">Andini Ani</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 padding-container py-3">
+                                        <div style="cursor: default;">
+                                            <img class="card-img-top" src="https://images.unsplash.com/photo-1438763298591-75a0d42b7265?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" alt="Dalu Mukti P">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Komisaris Keuangan</h5>
+                                                <p style="font-size: small; color: red;">Sigit Sihombing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                               asdfjiawefhuiawejfjkhajskdfhawnefokasjdfn
+                                <div class="row w-100 mx-0 ">
+                                    <div class="col-md-3 padding-container py-3">
+                                        <div style="cursor: default;">
+                                            <img class="card-img-top" src="https://images.unsplash.com/photo-1438763298591-75a0d42b7265?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80" alt="Dalu Mukti P">
+                                            <div class="card-body">
+                                            <h5 class="card-title">Penanggung Jawab</h5>
+                                                <p style="font-size: small; color: red;">Putra S</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             </div>
                     </div>
