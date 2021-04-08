@@ -11,7 +11,7 @@ class M_berita {
 
     //function for get all data berita from tabel berita in db
     public function getAllBerita(){
-        $query = 'SELECT * from '.$this->primaryTable.' a 
+        $query = 'SELECT a.id as id, a.title, a.tanggal, a.isi, a.path_image, b.nama from '.$this->primaryTable.' a 
                 LEFT JOIN '.$this->joinTableKategoriBerita.' b 
                 ON a.id_kategori = b.id';
         $this->db->query($query);
@@ -28,9 +28,9 @@ class M_berita {
 
     //function for get data berita by id from tabel berita in db
     public function getBerita($id){
-        $query = 'SELECT * from '.$this->primaryTable.' a 
+        $query = 'SELECT a.id as id, a.title, a.tanggal, a.isi, a.path_image, b.nama from '.$this->primaryTable.' a 
             LEFT JOIN '.$this->joinTableKategoriBerita.' b 
-            ON a.id_kategori_jabatan = b.id
+            ON a.id_kategori = b.id
             WHERE a.id =:id';
         $this->db->query($query);
         $this->db->bind('id', $id);
