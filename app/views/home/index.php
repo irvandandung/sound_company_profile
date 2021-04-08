@@ -75,15 +75,16 @@
                 <div class="row w-100 mx-0 ">
                     <?php foreach($data['upberita'] as $key){ ?>
                     <div class="col-md-4 padding-container py-3">
+                    <a style="text-decoration: none; color :black;" href="<?= BASEURL ?>berita/detail/<?= $key['id'] ?>" >
                         <div class="card">
                             <img class="card-img-top" src="<?= $key['path_image'] ?>" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $key['title'] ?></h5>
                                 <p style="font-size: small; color: red;"><?= $key['tanggal'] ?></p>
                                 <p class="card-text"><?= substr($key['isi'], 0, 200) ?>....</p>
-
                             </div>
                         </div>
+                        </a>
                     </div>
                     <?php } ?>
 
