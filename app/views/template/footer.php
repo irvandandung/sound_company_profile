@@ -79,18 +79,40 @@
                 }
             });
         });
-        $('#notelp').keyup(function() {
-            var input = $(this).val();
-            // console.log(input.substr(0, 2));
-            if (validation(input, 'numberphone') == true) {
-                $('.font-error').remove();
-                $('#grupinput').after(
-                    '<p style="position: absolute;" class="font-error">Nomor Handphone yang anda masukkan salah</p>'
-                );
-            } else {
-                $('.font-error').remove();
+    $('#erase').click(function() {
+        $('#notelp').val('');
+        $('.font-error').remove();
+    });
+
+    function validation(input, type) {
+        if (type == 'numberphone') {
+            var wrong;
+            if (input.length < 10) {
+                wrong = true;
             }
-        });
+            if (input.substr(0, 2) != 08) {
+                wrong = true
+            }
+            if (wrong == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    $('#notelp').keyup(function() {
+        var input = $(this).val();
+        // console.log(input.substr(0, 2));
+        if (validation(input, 'numberphone') == true) {
+            $('.font-error').remove();
+            $('#notelp').after(
+                '<p style="position: absolute; margin-top:42px !important;" class="font-error">Nomor Handphone yang anda masukkan salah</p>'
+            );
+        } else {
+            $('.font-error').remove();
+        }
+    });
     </script>
 </body>
 

@@ -27,8 +27,8 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $key['title'] ?></h5>
                                 <p style="font-size: small; color: red;"><?= $key['tanggal'] ?></p>
-                                <p class="card-text"><?= substr($key['isi'], 0, 600) ?>...</p>
-
+                                <p class="card-text"><?= substr($key['isi'], 0, 520) ?>...</p>
+                                <p class="card-text"><a style="color: red;" href="<?= BASEURL ?>berita/detail/<?= $key['id'] ?>">More ></a></p>
                             </div>
                         </div>
                     </div>

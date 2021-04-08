@@ -55,7 +55,7 @@
                             <div class="col-sm-12 ">
                                 <div class="row px-3 ">
                                     <div class="d-flex justify-content-center align-items-start ">
-                                        <img height="48px " width="48px " src="https://www.flaticon.com/svg/vstatic/svg/2111/2111728.svg?token=exp=1617452384~hmac=8b83fd4f59e053fc7be1632511715aa6" />
+                                        <img height="48px " width="48px " src="<?= BASEURL ?>assets/image/whatsapp.png" />
                                     </div>
                                     <div class="col ">
                                         <p class="font18bold ">Whatsapp</p>
@@ -84,7 +84,7 @@
                             <div class="col-sm-12 ">
                                 <div class="row px-3 ">
                                     <div class="d-flex justify-content-center align-items-start ">
-                                        <img height="48px " width="48px " src="https://www.flaticon.com/svg/vstatic/svg/4412/4412440.svg?token=exp=1617452476~hmac=fb007b527dd2403935cc775313ab3b73" />
+                                        <img height="44px " width="44px " src="<?= BASEURL ?>assets/image/telephonecall.png" />
                                     </div>
                                     <div class="col ">
                                         <p class="font18bold ">Costumer Service</p>
