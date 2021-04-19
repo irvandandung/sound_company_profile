@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Apr 2021 pada 14.27
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.1
+-- Generation Time: Apr 19, 2021 at 08:07 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita`
+-- Table structure for table `berita`
 --
 
 CREATE TABLE `berita` (
@@ -38,7 +38,7 @@ CREATE TABLE `berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `berita`
+-- Dumping data for table `berita`
 --
 
 INSERT INTO `berita` (`id`, `title`, `tanggal`, `isi`, `path_image`, `id_kategori`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `berita` (`id`, `title`, `tanggal`, `isi`, `path_image`, `id_kategor
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jabatan`
+-- Table structure for table `jabatan`
 --
 
 CREATE TABLE `jabatan` (
@@ -61,7 +61,7 @@ CREATE TABLE `jabatan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `karyawan`
+-- Table structure for table `karyawan`
 --
 
 CREATE TABLE `karyawan` (
@@ -73,7 +73,7 @@ CREATE TABLE `karyawan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_berita`
+-- Table structure for table `kategori_berita`
 --
 
 CREATE TABLE `kategori_berita` (
@@ -83,7 +83,7 @@ CREATE TABLE `kategori_berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori_berita`
+-- Dumping data for table `kategori_berita`
 --
 
 INSERT INTO `kategori_berita` (`id`, `nama`, `keterangan`) VALUES
@@ -93,7 +93,7 @@ INSERT INTO `kategori_berita` (`id`, `nama`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_jabatan`
+-- Table structure for table `kategori_jabatan`
 --
 
 CREATE TABLE `kategori_jabatan` (
@@ -101,95 +101,179 @@ CREATE TABLE `kategori_jabatan` (
   `nama` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_title`
+--
+
+CREATE TABLE `tbl_title` (
+  `id` int(11) NOT NULL,
+  `title` varchar(30) DEFAULT NULL,
+  `detail` varchar(50) NOT NULL,
+  `owner` varchar(50) NOT NULL,
+  `version` varchar(15) NOT NULL,
+  `logo` varchar(15) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_title`
+--
+
+INSERT INTO `tbl_title` (`id`, `title`, `detail`, `owner`, `version`, `logo`) VALUES
+(1, 'SOUND', 'SOUND ', 'PT.SOUND_ID', '1.0.0', 'logo.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `nama` varchar(30) NOT NULL,
+  `nik` int(11) NOT NULL,
+  `typefile` varchar(15) NOT NULL,
+  `user_group` varchar(20) NOT NULL,
+  `user_level` varchar(20) NOT NULL,
+  `user_area` varchar(20) NOT NULL,
+  `registrasi` datetime DEFAULT NULL,
+  `log_in` datetime NOT NULL,
+  `log_out` datetime NOT NULL,
+  `idcard` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id`, `username`, `password`, `nama`, `nik`, `typefile`, `user_group`, `user_level`, `user_area`, `registrasi`, `log_in`, `log_out`, `idcard`) VALUES
+(1, 'mobile', 'da185433a3e114a3b4ac5774d78e1136d38', 'Dmuktico', 11234, 'dalu.jpg', 'User', 'MobileScan', 'Mobile', '2018-12-15 09:26:36', '2020-03-27 14:46:42', '2020-03-27 14:46:49', '34572016a90803b62859929c53ba59ccd6459729'),
+(9, 'nis_sugianto', 'c3160f7df730ba8f6999604b82eebd1e9cb', 'NIS SUGIANTO', 12988, '', 'Admin', 'Service Part', 'Admin', '2020-03-13 17:29:05', '2021-03-08 16:54:15', '2021-03-08 16:57:40', '98119b41748de6d2097e726b238ac120bd81f891'),
+(6, 'admin', 'b2fb06abbe7ea77e4c53cbf7ea3fd15b294', 'DMUKTICO', 56540, 'admin.jpg', 'Admin', 'Administrator', 'Admin', '2020-01-11 16:06:36', '2021-04-16 14:50:47', '2021-03-26 14:07:52', 'b0b9515ace4c525d8af7a66a3f152c5146ff93a8'),
+(8, 'bintang', 'd807da8d8b873adc60d9734303d6f6611e1', 'BINTANG KALIMASADA', 67701, '', 'User', 'MobileScan', 'Mobile', '2020-03-13 16:48:46', '2021-03-26 14:08:13', '2021-03-26 14:08:17', '6175f918157c11200a84eab2a8784e2a05b4c805'),
+(13, 'ppc', '58c6dabfa5e6550ab739bae63b26859280f', 'PPC Operation', 12345, '', 'Admin', 'Operation', 'Admin', '2021-03-26 14:06:39', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'f10b8cdd6a3a2b1a67a5eaa7be5eb4f187c9ada0'),
+(10, 'gunawan', 'a994bed95a10de324d8fdfa8406d7fe8578', 'Anggun Gunawan', 69000, '', 'User', 'MobileScan', 'Mobile', '2021-03-03 17:39:53', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'be8eb8bd606deedcb65f0fcbece4705a37163fa1'),
+(11, 'yuli', 'e388487dfbc150109d15ea08e8dcd2403cf', 'Yuli Wibowo', 9206, '', 'Admin', 'Operation', 'Admin', '2021-03-03 17:41:30', '2021-03-18 16:55:21', '2021-03-18 17:19:15', 'a9801db2900f6f41b5504179e7507acdd4826e69'),
+(12, 'sofiyan', '45ae207d9cb8a7fddd48d7f2a9702ffe259', 'Sofiyan Abdurrahman', 6948, '', 'Admin', 'Operation', 'Admin', '2021-03-03 17:42:04', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'f96f6c1f8a054c88a4554c1ca5aee87a7b8a6bd2');
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `berita`
+-- Indexes for table `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_kategori_berita` (`id_kategori`);
 
 --
--- Indeks untuk tabel `jabatan`
+-- Indexes for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_kategori_jabatn` (`id_kategori_jabatan`);
 
 --
--- Indeks untuk tabel `karyawan`
+-- Indexes for table `karyawan`
 --
 ALTER TABLE `karyawan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_jabatan` (`id_jabatan`);
 
 --
--- Indeks untuk tabel `kategori_berita`
+-- Indexes for table `kategori_berita`
 --
 ALTER TABLE `kategori_berita`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `kategori_jabatan`
+-- Indexes for table `kategori_jabatan`
 --
 ALTER TABLE `kategori_jabatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- Indexes for table `tbl_title`
+--
+ALTER TABLE `tbl_title`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`,`password`),
+  ADD KEY `idcard` (`idcard`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `berita`
+-- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `jabatan`
+-- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `karyawan`
+-- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_berita`
+-- AUTO_INCREMENT for table `kategori_berita`
 --
 ALTER TABLE `kategori_berita`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_jabatan`
+-- AUTO_INCREMENT for table `kategori_jabatan`
 --
 ALTER TABLE `kategori_jabatan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- AUTO_INCREMENT for table `tbl_title`
+--
+ALTER TABLE `tbl_title`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `berita`
+-- Constraints for table `berita`
 --
 ALTER TABLE `berita`
   ADD CONSTRAINT `fk_kategori_berita` FOREIGN KEY (`id_kategori`) REFERENCES `kategori_berita` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `jabatan`
+-- Constraints for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD CONSTRAINT `fk_kategori_jabatn` FOREIGN KEY (`id_kategori_jabatan`) REFERENCES `kategori_jabatan` (`id`);
 
 --
--- Ketidakleluasaan untuk tabel `karyawan`
+-- Constraints for table `karyawan`
 --
 ALTER TABLE `karyawan`
   ADD CONSTRAINT `fk_jabatan` FOREIGN KEY (`id_jabatan`) REFERENCES `jabatan` (`id`);
