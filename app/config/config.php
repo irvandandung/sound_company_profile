@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //base url
 define('BASEURL', 'http://localhost/sound/public/');
 
