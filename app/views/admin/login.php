@@ -1,113 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SOUND</title>
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="admin_assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="admin_assets/vendors/css/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="admin_assets/css/style.css">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="admin_assets/images/adm.png" />
-  </head>
-  <body>
-    <div class="container-scroller">
-      <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="content-wrapper d-flex align-items-center auth">
-          <div class="row flex-grow">
-            <div class="col-lg-4 mx-auto">
-              <div class="auth-form-light text-left p-5" style="background-size:100% 100%;vertical-align: middle;border-radius:20px;border:1px">
-                <div class="brand-logo">
-                <a href="admin"><h1 class="text-center text-bold" style="font-family: montserrat;">SOUND-COMPANY</h1></a>
-                </div>
-                <h4 class="text-dark">Hello Sahabat! let's get started</h4>
-                <h6 class="font-weight-light text-dark">Sign in to continue.</h6>
-                 <form method="post" action="admin/login" id="mydata" class="pt-3">
-                <!-- <form class="pt-3"> -->
-                  <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="username" placeholder="Username" name="username">
-                
-                  </div>
-                  <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password">
-                    
-                  </div>
-
-                  <div class="mt-3">
-                  <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">Sign In</button>
-                  </div>
-                  <div class="my-2 d-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                      <label class="form-check-label text-muted">
-                        <input type="checkbox" class="form-check-input"> Create by Dmuktico </label>
-                    </div>
-                    <a href="#" class="auth-link text-dark">Forgot password?</a>
-                  </div>
-                 
-                  <div class="text-center mt-4 font-weight-light text-dark"> PT.SOUND_ID
-                  </div>
-                </form>
-              </div>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="<?=  BASEURL ?>assets/adminlte/index2.html"><b>Admin</b>LTE</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+      <?php
+        if(isset($_SESSION['errormessage'])){
+      ?>
+      <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <h5><i class="icon fas fa-ban"></i> Gagal login!</h5>
+          <?= $_SESSION['errormessage']; ?>
+      </div>
+      <?php
+        }
+      ?>
+      <form action="<?=  BASEURL ?>admin/auth_login" method="post">
+        <div class="input-group mb-3">
+          <input type="text" name="username" class="form-control" placeholder="Username" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="admin_assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="admin_assets/js/off-canvas.js"></script>
-    <script src="admin_assets/js/hoverable-collapse.js"></script>
-    <script src="admin_assets/js/misc.js"></script>
-    <script type="text/javascript"> 
-  $(window).load(function() { 
-      $("#loading").fadeOut("slow");
-      $("#username").focus();
-    })
-  </script>
-  <script type="text/javascript"> 
-    $('#mydata').submit(function(e){
-        e.preventDefault();
-         var fa = $(this);            
-          $.ajax({
-            url: fa.attr('action'),
-            type: 'post' ,
-            data: fa.serialize(),
-            dataType: 'json',
-            success: function(response) {
-              if(response.success == true) {
-                window.location.href ="<?=base_url('home_admin');?>"
-              }else{
-                $.each(response.messages,function(key, value){
-                  var element = $('#' + key);
-                  element.closest('div.form-group')
-                  .removeClass('has-error')
-                  .addClass(value.length > 0 ? 'has-error' : 'has-success')
-                  .find('.label.label-warning')
-                  .remove();
-                  element.after(value);
-                });
-                $("#username").focus();
-              }
-            }
-         });
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <!-- <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div> -->
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
-      });
-</script>
-    <!-- endinject -->
-  </body>
-</html>
+      <!-- <div class="social-auth-links text-center mb-3">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+        </a>
+      </div> -->
+      <!-- /.social-auth-links -->
+
+      <!-- <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.html" class="text-center">Register a new membership</a>
+      </p> -->
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>

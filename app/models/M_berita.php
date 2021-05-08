@@ -43,4 +43,16 @@ class M_berita {
         $this->db->query($query);
         return $this->db->results();
     }
+
+    public function inputBerita($data){
+        return $this->db->insert($this->primaryTable, $data);
+    }
+
+    public function editBerita($id, $data){
+        return $this->db->update($this->primaryTable, $data, ['id' => $id]);
+    }
+
+    public function deleteBerita($id){
+        return $this->db->delete($this->primaryTable, ['id' => $id]);
+    }
 }
