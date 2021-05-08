@@ -106,6 +106,29 @@ class Database{
         }
     }
 
+    public function delete($table, $where){
+        try{
+            $num = 1;
+            $sets = '';
+            $wheres = '';
+            $num = 1;
+            foreach($where as $key => $value){
+                if(count($where) != $num){
+                    $wheres .= $key.'=:'.$key.', ';
+                }else{
+                    $wheres .= $key.'=:'.$key;
+                }
+                $num++;
+            }
+            $query = 'DELETE FROM '.$table.' WHERE '.$wheres;
+            $this->query($query);
+            $this->query->execute($where);
+            return 1;
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
+    }
+
     //fetch all data
     public function results(){
         $this->exceute();
