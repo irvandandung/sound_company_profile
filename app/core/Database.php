@@ -50,6 +50,62 @@ class Database{
         $this->query->execute();
     }
 
+    public function insert($table ,$data){
+        try{
+            $num = 1;
+            $keys = '';
+            $vals = '';
+            foreach($data as $key => $value){
+                if(count($data) != $num){
+                    $vals .= ':'.$key.', ';
+                    $keys .= $key.', ';
+                }else{
+                    $vals .= ':'.$key;
+                    $keys .= $key;
+                }
+                $num++;
+            }
+            $query = 'INSERT INTO '.$table.' ('.$keys.') VALUES ('.$vals.')';
+            $this->query($query);
+            $this->query->execute($data);
+            return true;
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function update($table, $data, $where){
+        try{
+            $num = 1;
+            $sets = '';
+            $wheres = '';
+            foreach($data as $key => $value){
+                if(count($data) != $num){
+                    $sets .= $key.'=:'.$key.', ';
+                }else{
+                    $sets .= $key.'=:'.$key;
+                }
+                $num++;
+            }
+            $num = 1;
+            foreach($where as $key => $value){
+                if(count($where) != $num){
+                    $wheres .= $key.'=:'.$key.', ';
+                }else{
+                    $wheres .= $key.'=:'.$key;
+                }
+                $num++;
+            }
+            $query = 'UPDATE '.$table.' SET '.$sets.' WHERE '.$wheres;
+            $this->query($query);
+            $data = array_merge($data, $where);
+            $this->query->execute($data);
+            return true;
+        }catch(PDOException $e){
+            return $e->getMessage();
+        }
+    }
+
     //fetch all data
     public function results(){
         $this->exceute();
