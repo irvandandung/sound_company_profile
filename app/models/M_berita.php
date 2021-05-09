@@ -44,6 +44,14 @@ class M_berita {
         return $this->db->results();
     }
 
+    //function for get kategori berita
+    public function getKategoriBerita($id){
+        $query = 'SELECT * from '.$this->joinTableKategoriBerita.' WHERE id=:id';
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->result();
+    }
+
     public function inputBerita($data){
         return $this->db->insert($this->primaryTable, $data);
     }
@@ -54,5 +62,17 @@ class M_berita {
 
     public function deleteBerita($id){
         return $this->db->delete($this->primaryTable, ['id' => $id]);
+    }
+
+    public function inputKategoriBerita($data){
+        return $this->db->insert($this->joinTableKategoriBerita, $data);
+    }
+
+    public function editKategoriBerita($id, $data){
+        return $this->db->update($this->joinTableKategoriBerita, $data, ['id' => $id ]);
+    }
+
+    public function deleteKategoriBerita($id){
+        return $this->db->delete($this->joinTableKategoriBerita, ['id'=>$id]);
     }
 }
