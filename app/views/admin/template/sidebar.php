@@ -36,8 +36,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item <?php echo ($data['state'] == 'lb' || $data['state'] == 'iudb') ? 'menu-open' : '' ?>">
-            <a href="#" class="nav-link <?php echo ($data['state'] == 'lb' || $data['state'] == 'iudb') ? 'active' : '' ?>">
+          <li class="nav-item <?php echo ($data['state'] == 'lkb' || $data['state'] == 'iudkb' || $data['state'] == 'lb' || $data['state'] == 'iudb') ? 'menu-open' : '' ?>">
+            <a href="#" class="nav-link <?php echo ($data['state'] == 'lkb' || $data['state'] == 'iudkb' || $data['state'] == 'lb' || $data['state'] == 'iudb') ? 'active' : '' ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Berita
@@ -55,6 +55,18 @@
                 <a href="<?= BASEURL ?>admin/inputupdateberita" class="nav-link <?php echo ($data['state'] == 'iudb') ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Input Berita</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= BASEURL ?>admin/listkategoriberita" class="nav-link <?php echo ($data['state'] == 'lkb') ? 'active' : '' ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Kategori Berita</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?= BASEURL ?>admin/inputupdatekategoriberita" class="nav-link <?php echo ($data['state'] == 'iudkb') ? 'active' : '' ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Input Kategori Berita</p>
                 </a>
               </li>
             </ul>
