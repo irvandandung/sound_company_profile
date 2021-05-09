@@ -50,6 +50,17 @@ class Admin extends Controller{
 		unset($_SESSION['message']);
 	}
 
+	function listkategoriberita(){
+		$this->checkAuth();
+		$data['state'] = 'lkb';
+		$data['allkategoriberita'] = $this->model('M_berita')->getAllKategoriBerita();
+		$this->view('admin/template/header');
+		$this->view('admin/template/sidebar', $data);
+		$this->view('admin/listkategoriberita', $data);
+		$this->view('admin/template/footer');
+		unset($_SESSION['message']);
+	}
+
 	function hit_berita($id = ''){
 		$this->checkAuth();
 		$data = [
@@ -72,11 +83,38 @@ class Admin extends Controller{
 		}
 	}
 
+	function hit_kategori_berita($id = ''){
+		$this->checkAuth();
+		$data = [
+			'nama' => $_POST['nama'],
+			'keterangan' => $_POST['keterangan']
+		];
+
+		if($id == ''){
+			$id = $this->model('M_berita')->inputKategoriBerita($data);
+		}else{
+			$this->model('M_berita')->editKategoriBerita($id, $data);
+		}
+		if(isset($id) && $id != ''){
+			$_SESSION['message'] = 'Berita berhasil disimpan';
+			header("Location: ".BASEURL."admin/listkategoriberita");
+			exit;
+		}
+	}
+
 	function deleteberita($id){
 		$this->checkAuth();
 		$this->model('M_berita')->deleteBerita($id);
 		$_SESSION['message'] = 'Berita berhasil dihapus';
 		header("Location: ".BASEURL."admin/listberita");
+		exit;
+	}
+
+	function deletekategoriberita($id){
+		$this->checkAuth();
+		$this->model('M_berita')->deleteKategoriBerita($id);
+		$_SESSION['message'] = 'Kategori Berita berhasil dihapus';
+		header("Location: ".BASEURL."admin/listkategoriberita");
 		exit;
 	}
 
@@ -107,12 +145,29 @@ class Admin extends Controller{
 			$data['page'] = 'Update';
 			$data['berita'] = $this->model('M_berita')->getBerita($id);
 		}else{
-			$data['page'] = 'input';
+			$data['page'] = 'Input';
 			$data['state'] = 'iudb';
 		}
 		$this->view('admin/template/header');
 		$this->view('admin/template/sidebar', $data);
 		$this->view('admin/inputupdateberita', $data);
+		$this->view('admin/template/footer');
+	}
+
+	function inputupdatekategoriberita($id = ''){
+		$this->checkAuth();
+		$data['page'] = ''; 
+		if($id != ''){
+			$data['state'] = '';
+			$data['page'] = 'Update';
+			$data['kategoriberita'] = $this->model('M_berita')->getKategoriBerita($id);
+		}else{
+			$data['page'] = 'Input';
+			$data['state'] = 'iudkb';
+		}
+		$this->view('admin/template/header');
+		$this->view('admin/template/sidebar', $data);
+		$this->view('admin/inputupdatekategoriberita', $data);
 		$this->view('admin/template/footer');
 	}
 }
