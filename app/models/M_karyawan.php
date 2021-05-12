@@ -17,6 +17,7 @@ class M_karyawan {
                 ON a.id_jabatan = b.id
                 LEFT JOIN '.$this->joinTableKategoriJabatan.' c 
                 ON b.id_kategori_jabatan = c.id';
+               
         $this->db->query($query);
         return $this->db->results();
     }
@@ -49,4 +50,17 @@ class M_karyawan {
         $this->db->query($query);
         return $this->db->results(); 
     }
+
+    public function inputKaryawan($data){
+        return $this->db->insert($this->primaryTable, $data);
+    }
+
+    public function editKaryawan($id, $data){
+        return $this->db->update($this->primaryTable, $data, ['id' => $id]);
+    }
+
+    public function deleteKaryawan($id){
+        return $this->db->delete($this->primaryTable, ['id' => $id]);
+    }
+
 }
