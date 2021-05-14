@@ -61,6 +61,26 @@ class Admin extends Controller{
 		unset($_SESSION['message']);
 	}
 
+	function hit_karyawan($id = ''){
+		$this->checkAuth();
+		$data = [
+			'nama' => $_POST['nama'],
+			'path_image' => $_POST['path_image'],
+			'id_jabatan'=> $_POST['id_jabatan'],
+		];
+
+		if($id == ''){
+			$id = $this->model('M_karyawan')->inputKaryawan($data);
+		}else{
+			$this->model('M_karyawan')->editKaryawan($id, $data);
+		}
+		if(isset($id) && $id != ''){
+			$_SESSION['message'] = 'Karyawan berhasil disimpan';
+			header("Location: ".BASEURL."admin/listkaryawan");
+			exit;
+		}
+	}
+
 	function hit_berita($id = ''){
 		$this->checkAuth();
 		$data = [
@@ -110,6 +130,14 @@ class Admin extends Controller{
 		exit;
 	}
 
+	function deletekaryawan($id){
+		$this->checkAuth();
+		$this->model('M_karyawan')->deleteKaryawan($id);
+		$_SESSION['message'] = 'Karyawan berhasil dihapus';
+		header("Location: ".BASEURL."admin/listkaryawan");
+		exit;
+	}
+
 	function deletekategoriberita($id){
 		$this->checkAuth();
 		$this->model('M_berita')->deleteKategoriBerita($id);
@@ -121,15 +149,27 @@ class Admin extends Controller{
 	function listkaryawan(){
 		$this->checkAuth();
 		$data['state'] = 'lk';
+		$data['allkaryawan'] = $this->model('M_karyawan')->getAllkaryawan();
 		$this->view('admin/template/header');
 		$this->view('admin/template/sidebar', $data);
 		$this->view('admin/listkaryawan', $data);
 		$this->view('admin/template/footer');
 	}
 
-	function inputupdatekaryawan(){
+	function inputupdatekaryawan($id = ''){
 		$this->checkAuth();
-		$data['state'] = 'iudk';
+		// $data['state'] = 'iudk';
+		$data['page'] = ''; 
+		$data['allKategori'] = $this->model('M_karyawan')->getAllKategoriJabatan();
+		if($id != ''){
+			$data['state'] = '';
+			$data['page'] = 'Update';
+			$data['alljabatan'] = $this->model('M_karyawan')->getAllJabatan($id);
+			
+		}else{
+			$data['page'] = 'Input';
+			$data['state'] = 'iudk';
+		}
 		$this->view('admin/template/header');
 		$this->view('admin/template/sidebar', $data);
 		$this->view('admin/inputupdatekaryawan', $data);
