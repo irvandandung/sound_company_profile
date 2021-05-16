@@ -68,6 +68,18 @@ class M_karyawan {
         return $this->db->results(); 
     }
 
+    public function getKaryawanbyIdKategori($id){
+        $query = "SELECT a.id, a.nama as nama, a.path_image, b.nama as jabatan, c.jabatan as kategori_jabatan from ".$this->primaryTable." a 
+        LEFT JOIN ".$this->joinTableJabatan." b 
+        ON a.id_jabatan = b.id
+        LEFT JOIN ".$this->joinTableKategoriJabatan." c 
+        ON b.id_kategori_jabatan = c.id
+        WHERE c.id =:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->results();
+    }
+
     public function inputKaryawan($data){
         return $this->db->insert($this->primaryTable, $data);
     }
