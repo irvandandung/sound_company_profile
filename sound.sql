@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2021 at 05:22 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.5
+-- Generation Time: May 15, 2021 at 08:54 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -77,6 +78,17 @@ CREATE TABLE `jabatan` (
   `id_kategori_jabatan` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `jabatan`
+--
+
+INSERT INTO `jabatan` (`id`, `nama`, `id_kategori_jabatan`) VALUES
+(1, 'denis', 1),
+(2, 'dimas', 2),
+(3, 'ricca', 3),
+(4, 'lorent', 4),
+(5, 'ridwan', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -86,8 +98,18 @@ CREATE TABLE `jabatan` (
 CREATE TABLE `karyawan` (
   `id` int(50) NOT NULL,
   `nama` text NOT NULL,
+  `path_image` varchar(30) DEFAULT NULL,
   `id_jabatan` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `karyawan`
+--
+
+INSERT INTO `karyawan` (`id`, `nama`, `path_image`, `id_jabatan`) VALUES
+(2, 'ridwan kamil', NULL, 5),
+(3, 'dmuktico', 'D:\\xampp\\htdocs\\sound\\public\\a', 4),
+(5, 'MEMBER', 'https://www.pay2u.co.id/wp-con', 1);
 
 -- --------------------------------------------------------
 
@@ -117,8 +139,19 @@ INSERT INTO `kategori_berita` (`id`, `nama`, `keterangan`) VALUES
 
 CREATE TABLE `kategori_jabatan` (
   `id` int(50) NOT NULL,
-  `nama` text NOT NULL
+  `jabatan` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori_jabatan`
+--
+
+INSERT INTO `kategori_jabatan` (`id`, `jabatan`) VALUES
+(1, 'manager'),
+(2, 'supervisor\r\n'),
+(3, 'leader'),
+(4, 'senior staff'),
+(5, 'junior staff');
 
 --
 -- Indexes for dumped tables
@@ -183,13 +216,13 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT for table `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `kategori_berita`
@@ -201,7 +234,7 @@ ALTER TABLE `kategori_berita`
 -- AUTO_INCREMENT for table `kategori_jabatan`
 --
 ALTER TABLE `kategori_jabatan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
