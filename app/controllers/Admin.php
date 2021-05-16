@@ -61,6 +61,43 @@ class Admin extends Controller{
 		unset($_SESSION['message']);
 	}
 
+	function hit_jabatan($id = ''){
+		$this->checkAuth();
+		$data = [
+			'nama' => $_POST['nama'],
+			'id_kategori_jabatan'=> $_POST['id_kategori_jabatan'],
+		];
+
+		if($id == ''){
+			$id = $this->model('M_karyawan')->inputJabatan($data);
+		}else{
+			$this->model('M_karyawan')->editJabatan($id, $data);
+		}
+		if(isset($id) && $id != ''){
+			$_SESSION['message'] = 'Jabatan berhasil disimpan';
+			header("Location: ".BASEURL."admin/listjabatan");
+			exit;
+		}
+	}
+
+	function hit_kategori_jabatan($id = ''){
+		$this->checkAuth();
+		$data = [
+			'jabatan'=> $_POST['jabatan'],
+		];
+
+		if($id == ''){
+			$id = $this->model('M_karyawan')->inputKategoriJabatan($data);
+		}else{
+			$this->model('M_karyawan')->editKategoriJabatan($id, $data);
+		}
+		if(isset($id) && $id != ''){
+			$_SESSION['message'] = 'KategoriJabatan berhasil disimpan';
+			header("Location: ".BASEURL."admin/listkategorijabatan");
+			exit;
+		}
+	}
+
 	function hit_karyawan($id = ''){
 		$this->checkAuth();
 		$data = [
@@ -138,6 +175,22 @@ class Admin extends Controller{
 		exit;
 	}
 
+	function deleteJabatan($id){
+		$this->checkAuth();
+		$this->model('M_karyawan')->deleteJabatan($id);
+		$_SESSION['message'] = 'Jabatan berhasil dihapus';
+		header("Location: ".BASEURL."admin/listjabatan");
+		exit;
+	}
+
+	function deleteKategoriJabatan($id){
+		$this->checkAuth();
+		$this->model('M_karyawan')->deleteKategoriJabatan($id);
+		$_SESSION['message'] = 'Kategori Jabatan berhasil dihapus';
+		header("Location: ".BASEURL."admin/listkategorijabatan");
+		exit;
+	}
+
 	function deletekategoriberita($id){
 		$this->checkAuth();
 		$this->model('M_berita')->deleteKategoriBerita($id);
@@ -156,16 +209,35 @@ class Admin extends Controller{
 		$this->view('admin/template/footer');
 	}
 
+	function listjabatan(){
+		$this->checkAuth();
+		$data['state'] = 'lj';
+		$data['alljabatan'] = $this->model('M_karyawan')->getAlljabatan();
+		$this->view('admin/template/header');
+		$this->view('admin/template/sidebar', $data);
+		$this->view('admin/listjabatan', $data);
+		$this->view('admin/template/footer');
+	}
+
+	function listkategorijabatan(){
+		$this->checkAuth();
+		$data['state'] = 'lkj';
+		$data['allkategorijabatan'] = $this->model('M_karyawan')->getAllKategoriJabatan();
+		$this->view('admin/template/header');
+		$this->view('admin/template/sidebar', $data);
+		$this->view('admin/listkategorijabatan', $data);
+		$this->view('admin/template/footer');
+	}
+
 	function inputupdatekaryawan($id = ''){
 		$this->checkAuth();
 		// $data['state'] = 'iudk';
 		$data['page'] = ''; 
-		$data['allKategori'] = $this->model('M_karyawan')->getAllKategoriJabatan();
+		$data['allKategori'] = $this->model('M_karyawan')->getAllJabatan();
 		if($id != ''){
 			$data['state'] = '';
 			$data['page'] = 'Update';
-			$data['alljabatan'] = $this->model('M_karyawan')->getAllJabatan($id);
-			
+			$data['karyawan'] = $this->model('M_karyawan')->getKaryawan($id);
 		}else{
 			$data['page'] = 'Input';
 			$data['state'] = 'iudk';
@@ -173,6 +245,43 @@ class Admin extends Controller{
 		$this->view('admin/template/header');
 		$this->view('admin/template/sidebar', $data);
 		$this->view('admin/inputupdatekaryawan', $data);
+		$this->view('admin/template/footer');
+	}
+
+	function inputupdatejabatan($id = ''){
+		$this->checkAuth();
+		// $data['state'] = 'iudk';
+		$data['page'] = ''; 
+		$data['allKategori'] = $this->model('M_karyawan')->getAllKategoriJabatan();
+		if($id != ''){
+			$data['state'] = '';
+			$data['page'] = 'Update';
+			$data['jabatan'] = $this->model('M_karyawan')->getJabatan($id);
+		}else{
+			$data['page'] = 'Input';
+			$data['state'] = 'iudj';
+		}
+		$this->view('admin/template/header');
+		$this->view('admin/template/sidebar', $data);
+		$this->view('admin/inputupdatejabatan', $data);
+		$this->view('admin/template/footer');
+	}
+
+	function inputupdatekategorijabatan($id = ''){
+		$this->checkAuth();
+		// $data['state'] = 'iudk';
+		$data['page'] = ''; 
+		if($id != ''){
+			$data['state'] = '';
+			$data['page'] = 'Update';
+			$data['kategorijabatan'] = $this->model('M_karyawan')->getKategoriJabataban($id);
+		}else{
+			$data['page'] = 'Input';
+			$data['state'] = 'iudkj';
+		}
+		$this->view('admin/template/header');
+		$this->view('admin/template/sidebar', $data);
+		$this->view('admin/inputupdatekategorijabatan', $data);
 		$this->view('admin/template/footer');
 	}
 
@@ -203,7 +312,7 @@ class Admin extends Controller{
 			$data['kategoriberita'] = $this->model('M_berita')->getKategoriBerita($id);
 		}else{
 			$data['page'] = 'Input';
-			$data['state'] = 'iudkb';
+			$data['state'] = 'iukdb';
 		}
 		$this->view('admin/template/header');
 		$this->view('admin/template/sidebar', $data);
