@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2021 at 08:54 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: May 16, 2021 at 02:52 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -83,11 +82,11 @@ CREATE TABLE `jabatan` (
 --
 
 INSERT INTO `jabatan` (`id`, `nama`, `id_kategori_jabatan`) VALUES
-(1, 'denis', 1),
-(2, 'dimas', 2),
-(3, 'ricca', 3),
-(4, 'lorent', 4),
-(5, 'ridwan', 5);
+(1, 'CEO', 1),
+(2, 'CTO', 1),
+(3, 'MANAGER', 2),
+(4, 'SUPERVISOR', 2),
+(5, 'STAF', 4);
 
 -- --------------------------------------------------------
 
@@ -98,7 +97,7 @@ INSERT INTO `jabatan` (`id`, `nama`, `id_kategori_jabatan`) VALUES
 CREATE TABLE `karyawan` (
   `id` int(50) NOT NULL,
   `nama` text NOT NULL,
-  `path_image` varchar(30) DEFAULT NULL,
+  `path_image` varchar(255) DEFAULT NULL,
   `id_jabatan` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -107,9 +106,10 @@ CREATE TABLE `karyawan` (
 --
 
 INSERT INTO `karyawan` (`id`, `nama`, `path_image`, `id_jabatan`) VALUES
-(2, 'ridwan kamil', NULL, 5),
-(3, 'dmuktico', 'D:\\xampp\\htdocs\\sound\\public\\a', 4),
-(5, 'MEMBER', 'https://www.pay2u.co.id/wp-con', 1);
+(3, 'Dalu Mukti', 'https://images.unsplash.com/photo-1438763298591-75a0d42b7265?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80', 4),
+(5, 'Cutyanti', 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80', 1),
+(8, 'Muhamad Irvan Dandung', 'https://images.unsplash.com/photo-1438763298591-75a0d42b7265?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80', 5),
+(9, 'Millahanif Etichiya T', 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80', 3);
 
 -- --------------------------------------------------------
 
@@ -147,11 +147,10 @@ CREATE TABLE `kategori_jabatan` (
 --
 
 INSERT INTO `kategori_jabatan` (`id`, `jabatan`) VALUES
-(1, 'manager'),
-(2, 'supervisor\r\n'),
-(3, 'leader'),
-(4, 'senior staff'),
-(5, 'junior staff');
+(1, 'C LEVEL'),
+(2, 'MIDDLE LEVEL\r\n'),
+(4, 'STAF LEVEL'),
+(5, 'KOMISARIS');
 
 --
 -- Indexes for dumped tables
@@ -222,7 +221,7 @@ ALTER TABLE `jabatan`
 -- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `kategori_berita`
@@ -234,7 +233,7 @@ ALTER TABLE `kategori_berita`
 -- AUTO_INCREMENT for table `kategori_jabatan`
 --
 ALTER TABLE `kategori_jabatan`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
