@@ -46,7 +46,7 @@
                     <td><?= $x['nama'] ?></td>
                     <td><?= $x['jabatan'] ?></td>
                     <td><img src="<?= $x['path_image'] ?>" width="100px;" /></td>
-                    <td><a href="<?= BASEURL ?>admin/inputupdatekaryawan/<?= $x['id'] ?>">Edit</a> | <a href="<?= BASEURL ?>admin/deletekaryawan/<?= $x['id'] ?>">Hapus</a></td>
+                    <td><a type="button" class="btn btn-warning" href="<?= BASEURL ?>admin/inputupdatekaryawan/<?= $x['id'] ?>">Edit</a> | <a type="button" class="btn btn-danger" href="<?= BASEURL ?>admin/deletekaryawan/<?= $x['id'] ?>">Hapus</a></td>
                   <?php
                     }
                   ?>
