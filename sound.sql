@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2021 at 02:52 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.5
+-- Generation Time: May 17, 2021 at 07:44 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -152,6 +153,19 @@ INSERT INTO `kategori_jabatan` (`id`, `jabatan`) VALUES
 (4, 'STAF LEVEL'),
 (5, 'KOMISARIS');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keluhan`
+--
+
+CREATE TABLE `keluhan` (
+  `id` int(11) NOT NULL,
+  `kategori_produk` int(11) DEFAULT NULL,
+  `nomor_ponsel` int(11) DEFAULT NULL,
+  `pesan` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -196,6 +210,12 @@ ALTER TABLE `kategori_jabatan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `keluhan`
+--
+ALTER TABLE `keluhan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -234,6 +254,12 @@ ALTER TABLE `kategori_berita`
 --
 ALTER TABLE `kategori_jabatan`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `keluhan`
+--
+ALTER TABLE `keluhan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
