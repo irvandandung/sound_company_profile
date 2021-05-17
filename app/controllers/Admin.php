@@ -319,6 +319,18 @@ class Admin extends Controller{
 		$this->view('admin/inputupdatekategoriberita', $data);
 		$this->view('admin/template/footer');
 	}
+
+	function listkeluhan(){
+		$this->checkAuth();
+		$data['state'] = 'lkel';
+		$data['allkeluhan'] = $this->model('M_keluhan')->getAllKeluhan();
+		$this->view('admin/template/header');
+		$this->view('admin/template/sidebar', $data);
+		$this->view('admin/listkeluhan', $data);
+		$this->view('admin/template/footer');
+		unset($_SESSION['message']);
+	}
+
 }
 
 
