@@ -58,7 +58,7 @@
                     <td><?= $value['tanggal'] ?></td>
                     <td><?= $value['nama'] ?></td>
                     <td><img src="<?= $value['path_image'] ?>" width="100px;" /></td>
-                    <td><a href="<?= BASEURL ?>admin/inputupdateberita/<?= $value['id'] ?>">Edit</a> | <a href="<?= BASEURL ?>admin/deleteberita/<?= $value['id'] ?>">Hapus</a></td>
+                    <td><a type="button" class="btn btn-warning" href="<?= BASEURL ?>admin/inputupdateberita/<?= $value['id'] ?>">Edit</a> | <a type="button" class="btn btn-danger" href="<?= BASEURL ?>admin/deleteberita/<?= $value['id'] ?>">Hapus</a></td>
                   <?php
                     }
                   ?>
