@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2021 at 07:44 AM
+-- Generation Time: May 17, 2021 at 09:09 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -161,10 +161,17 @@ INSERT INTO `kategori_jabatan` (`id`, `jabatan`) VALUES
 
 CREATE TABLE `keluhan` (
   `id` int(11) NOT NULL,
-  `kategori_produk` int(11) DEFAULT NULL,
-  `nomor_ponsel` int(11) DEFAULT NULL,
+  `kategori_produk` varchar(50) DEFAULT NULL,
+  `nomor_ponsel` float DEFAULT NULL,
   `pesan` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `keluhan`
+--
+
+INSERT INTO `keluhan` (`id`, `kategori_produk`, `nomor_ponsel`, `pesan`) VALUES
+(1, 'stand mic', 87770200000, 'asefeknake awe fjoaefklnawekfnjka ejfnawjen jaknefjkawe fknaklenfjkawen fklasnf klase');
 
 --
 -- Indexes for dumped tables
@@ -259,7 +266,7 @@ ALTER TABLE `kategori_jabatan`
 -- AUTO_INCREMENT for table `keluhan`
 --
 ALTER TABLE `keluhan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
