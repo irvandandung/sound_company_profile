@@ -131,6 +131,34 @@
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
+
+       <!-- Sidebar Menu -->
+       <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview<?php echo ($data['state'] == 'lkel') ? 'menu-open' : '' ?>">
+            <a href="#" class="nav-link <?php echo ($data['state'] == 'lkel') ? 'active' : '' ?>">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Keluhan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= BASEURL ?>admin/listkeluhan" class="nav-link <?php echo ($data['state'] == 'lkel') ? 'active' : '' ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>List Keluhan</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+         
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
      
     </div>
     <!-- /.sidebar -->
