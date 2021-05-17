@@ -42,7 +42,7 @@
                   ?>
                   <tr>
                     <td><?= $x['kategori_jabatan'] ?></td>
-                    <td><a href="<?= BASEURL ?>admin/inputupdatekategorijabatan/<?= $x['id'] ?>">Edit</a> | <a href="<?= BASEURL ?>admin/deletejabatan/<?= $x['id'] ?>">Hapus</a></td>
+                    <td><a type="button" class="btn btn-warning" href="<?= BASEURL ?>admin/inputupdatekategorijabatan/<?= $x['id'] ?>">Edit</a> | <a type="button" class="btn btn-danger" href="<?= BASEURL ?>admin/deletejabatan/<?= $x['id'] ?>">Hapus</a></td>
                   <?php
                     }
                   ?>
