@@ -54,7 +54,7 @@
                   <tr>
                     <td><?= $value['nama'] ?></td>
                     <td><?= $value['keterangan'] ?></td>
-                    <td><a href="<?= BASEURL ?>admin/inputupdatekategoriberita/<?= $value['id'] ?>">Edit</a> | <a href="<?= BASEURL ?>admin/deletekategoriberita/<?= $value['id'] ?>">Hapus</a></td>
+                    <td><a type="button" class="btn btn-warning" href="<?= BASEURL ?>admin/inputupdatekategoriberita/<?= $value['id'] ?>">Edit</a> | <a type="button" class="btn btn-danger" href="<?= BASEURL ?>admin/deletekategoriberita/<?= $value['id'] ?>">Hapus</a></td>
                   <?php
                     }
                   ?>
