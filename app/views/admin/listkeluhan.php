@@ -55,10 +55,10 @@
                   <tr>
                     <td><?= $value['kategori_produk'] ?></td>
                     <td><?= $value['nomor_ponsel'] ?></td>
-                    <td><?= $value['pesan'] ?></td>
+                    <td><?= substr($value['pesan'], 10) ?>...</td>
                     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?= $value['id'] ?>">
                           Lihat
-                        </button> | <a type="button" class="btn btn-danger" href="<?= BASEURL ?>admin/deletekeluhan/<?= $value['id'] ?>">Hapus</a></td>
+                        </button> | <a type="button" class="btn btn-danger" href="<?= BASEURL ?>admin/deleteKeluhan/<?= $value['id'] ?>">Hapus</a></td>
 
                       <!-- Modal -->
                     <div class="modal fade" id="exampleModal<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -81,7 +81,7 @@
                           
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                           </div>
                         </div>
                       </div>

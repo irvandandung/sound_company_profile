@@ -191,6 +191,14 @@ class Admin extends Controller{
 		exit;
 	}
 
+	function deleteKeluhan($id){
+		$this->checkAuth();
+		$this->model('M_keluhan')->deleteKeluhan($id);
+		$_SESSION['message'] = 'Keluhan berhasil dihapus';
+		header("Location: ".BASEURL."admin/listkeluhan");
+		exit;
+	}
+
 	function deletekategoriberita($id){
 		$this->checkAuth();
 		$this->model('M_berita')->deleteKategoriBerita($id);
