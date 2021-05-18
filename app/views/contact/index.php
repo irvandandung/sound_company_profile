@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-sm-6 mb-md-0 mb-3">
                                 <label class="font-item-form" for="titleFormItem">Kategori Produk</label>
-                                <select class="js-example-basic-single customselect normalfont" name=" state ">
+                                <select id="cat" class="js-example-basic-single customselect normalfont" name=" state">
                                     <option value="Machine Learning">Machine</option>
 
                                     <option value="AI">AI</option>
@@ -40,12 +40,13 @@
 
                         <div class="toTextarea ">
                             <label class="font-item-form" for="titleFormItem">Pesan</label>
-                            <textarea class="p-3" placeholder="Tulis Di sini... "></textarea>
+                            <textarea id='ket' class="p-3" placeholder="Tulis Di sini... "></textarea>
                         </div>
                         <div class="row px-3 pt-3 d-flex justify-content-end align-items-center ">
-                            <button style="background-color: red !important; border-color: red;" type="submit" class="btn btn-primary my-1 px-5 py-2 font-weight-bold" style="height: 54px " data-toggle="modal" data-target="#modalDetailOrder">
+                            <button onclick="swale(false)" id="sendMessage" type="submit" class="btn btn-primary my-1 px-5 py-2 font-weight-bold h-btn-md h-btn" style="height: 54px " data-toggle="modal" data-target="#modalDetailOrder">
                                 Kirim
                             </button>
+
                         </div>
                     </div>
                 </div>
@@ -62,13 +63,14 @@
                                         <div class="row ">
                                             <div class="col d-flex justify-content-start ">
                                                 <p class="normalfont ">
-                                                    081129391020
+                                                    082211682560
                                                 </p>
                                             </div>
                                             <div class="col d-flex justify-content-end p-0 ">
-                                                <p class="font-link m-0 font-weight-bold">
+                                            <p onclick="window.location.href = 'https://wa.me/6282211682560'" class="font-link m-0 font-weight-bold">
                                                     Kirim Pesan
                                                 </p>
+
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +97,7 @@
                                                 </p>
                                             </div>
                                             <div class="col d-flex justify-content-end p-0 ">
-                                                <p class="font-link m-0 font-weight-bold">
+                                                <p onclick="window.location.href = 'tel:+62-21-910-2949'" class="font-link m-0 font-weight-bold">
                                                     Telepon
                                                 </p>
                                             </div>

@@ -8,4 +8,15 @@ class Contact extends Controller {
         $this->view('contact/index');
         $this->view('template/footer');
     }
+
+    public function send_keluhan(){
+        $data = [
+            'kategori_produk'  => $_POST['category'], 
+            'nomor_ponsel' => $_POST['phonenumber'],
+            'pesan' => $_POST['pesan']
+        ];
+        
+        $callback = $this->model('M_keluhan')->insertKeluhan($data);
+        echo $callback;
+    }
 }

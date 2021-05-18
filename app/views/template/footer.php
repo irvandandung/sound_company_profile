@@ -79,9 +79,28 @@
                 }
             });
         });
+    
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+        $('.select2-selection__rendered').after(
+            '<p style="margin-top:-24px; margin-left:86%;" class="selectfont">Ubah</p>');
+        $('.select2-selection__arrow').remove();
+    });
+
+    function updatebutton() {
+        if (validation($('#notelp').val(), 'numberphone') == false && $('#ket').val() != '') {
+            $('#sendMessage').attr('onclick', 'swale(true)');
+        }else{
+            $('#sendMessage').attr('onClick', 'swale(false)');
+        }
+    }
+
     $('#erase').click(function() {
         $('#notelp').val('');
         $('.font-error').remove();
+        $('#notelp').attr('style','border-color:#40AE47 !important');
+        $('#erase').attr('style','border-color:#40AE47 !important');
+        updatebutton();
     });
 
     function validation(input, type) {
@@ -109,10 +128,108 @@
             $('#notelp').after(
                 '<p style="position: absolute; margin-top:42px !important;" class="font-error">Nomor Handphone yang anda masukkan salah</p>'
             );
+            $('#notelp').attr('style','border-color:#FF2800 !important');
+            $('#erase').attr('style','border-color:#FF2800 !important');
         } else {
             $('.font-error').remove();
+            $('#notelp').attr('style','border-color:#40AE47 !important');
         }
+        updatebutton();
     });
+
+    function swale(status){
+        console.log(status)
+        if (status == true) {
+            var formData = {
+                category : $('#cat').val(),
+                phonenumber : $('#notelp').val(),
+                pesan : $('#ket').val()
+            }
+            $.ajax({
+                type : 'POST',
+                url: '<?php echo BASEURL; ?>Contact/send_keluhan',
+                dataType : 'text',
+                data : formData,
+                cache : false,
+                beforeSend : function() {
+                    let timerInterval
+                    Swal.fire({
+                      // timer: 5000,
+                      // timerProgressBar: true,
+                      onBeforeOpen: () => {
+                        Swal.showLoading()
+                        timerInterval = setInterval(() => {
+                          const content = Swal.getContent()
+                          if (content) {
+                            const b = content.querySelector('b')
+                            if (b) {
+                              b.textContent = Swal.getTimerLeft()
+                            }
+                          }
+                        }, 100)
+                      },
+                      onClose: () => {
+                        clearInterval(timerInterval)
+                      }
+                    }).then((result) => {
+                      /* Read more about handling dismissals below */
+                      if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log('I was closed by the timer')
+                      }
+                    })
+                },
+                success : function(response) {
+                    if (response == '1') {
+                        Swal.fire({
+                            title: 'Success',
+                            text: 'Success send message',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }else{
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops, complain tidak terkirim...',
+                            text: 'Maaf, error akan segera kami perbaiki!'
+                        });
+                    }
+                }
+            });
+       
+        }else{
+            if ($('#notelp').val() == '') {
+                $('.notelp').remove();
+                $('#notelp').after(
+                '<p style="position: absolute; margin-top:42px !important;" class="font-error notelp">Nomor Handphone tidak boleh kosong</p>'
+                );
+                $('#notelp').attr('style','border-color:#FF2800 !important');
+                $('#erase').attr('style','border-color:#FF2800 !important');
+            }
+            if ($('#ket').val() == '') {
+                 $('.ket').remove();
+                 $('#ket').after('<p class="font-error ket">Keterangan tidak boleh kososng</p>');
+                  $('#ket').attr('style','border-color:#FF2800 !important');
+            }
+        }
+        
+    }
+
+    $('#ket').keyup(function(){
+        if ($('#ket').val() == '') {
+            $('.ket').remove();
+            $('#ket').after('<p class="font-error ket">Keterangan tidak boleh kososng</p>');
+            $('#ket').attr('style','border-color:#FF2800 !important');
+
+        }else {
+            $('#ket').attr('style','border-color:#40AE47 !important');
+            $('.ket').remove();
+        }
+        updatebutton();
+    })
+
+
+
     </script>
 </body>
 

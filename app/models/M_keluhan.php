@@ -19,5 +19,8 @@ class M_keluhan {
         return $this->db->delete($this->primaryTable, ['id' => $id]);
     }
 
+    public function insertKeluhan($data){
+        return $this->db->insert($this->primaryTable, $data);
+    }
    
 }
