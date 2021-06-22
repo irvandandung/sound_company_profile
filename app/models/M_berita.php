@@ -13,8 +13,8 @@ class M_berita {
     public function getAllBerita(){
         $query = 'SELECT a.id as id, a.title, a.tanggal, a.isi, a.path_image, b.nama from '.$this->primaryTable.' a 
                 LEFT JOIN '.$this->joinTableKategoriBerita.' b 
-                ON a.id_kategori = b.id';
-        $this->db->query($query);
+                ON a.id_kategori = b.id group by a.id desc limit 3';
+        $this->db->query($query);   
         return $this->db->results();
     }
 
