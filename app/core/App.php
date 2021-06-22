@@ -8,12 +8,13 @@ class App {
     public function __construct()
     {
         $url = $this->parseUrl();
-
         //check & inisiazation controller
-        if(isset($url) && file_exists('../app/controllers/'.$url[0].'.php')){
-            $this->controllers = $url[0];
+        // print_r('../app/controllers/'.$url[0].'.php');
+        if(isset($url) && file_exists('../app/controllers/'.ucfirst($url[0]).'.php')){
+            $this->controllers = ucfirst($url[0]);
             unset($url[0]);
         }
+
         require_once '../app/controllers/'.$this->controllers.'.php';
         $this->controllers = new $this->controllers;
 

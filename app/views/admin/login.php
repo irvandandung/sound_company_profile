@@ -1,7 +1,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?=  BASEURL ?>assets/adminlte/index2.html"><b>Admin</b>LTE</a>
+    <a href="<?=  BASEURL ?>assets/adminlte/index2.html"><b>Sound</b>ADMIN</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
