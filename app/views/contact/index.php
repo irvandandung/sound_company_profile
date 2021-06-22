@@ -109,6 +109,10 @@
                     </div>
                 </div>
             </div>
+            <p style="margin-top:40px" class="font-title-page">Temukan Kami di sini</p>
+            <div class="embed-responsive embed-responsive-1by1">
+                <iframe class="embed-responsive-item" id="gmap_canvas" src="https://maps.google.com/maps?q=bekasi&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            </div>
         </div>
     </div>
     <!-- --- -->
